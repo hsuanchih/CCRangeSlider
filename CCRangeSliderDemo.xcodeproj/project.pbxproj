@@ -14,6 +14,9 @@
 		A23DC84E1AD594EF005044AF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A23DC84D1AD594EF005044AF /* Images.xcassets */; };
 		A23DC8511AD594EF005044AF /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = A23DC84F1AD594EF005044AF /* LaunchScreen.xib */; };
 		A23DC85D1AD594EF005044AF /* CCRangeSliderDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A23DC85C1AD594EF005044AF /* CCRangeSliderDemoTests.m */; };
+		A23DC8691AD59613005044AF /* CCRangeSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = A23DC8681AD59613005044AF /* CCRangeSlider.m */; };
+		A2C399C61AD67A910082765E /* UISliderHandleDefault.png in Resources */ = {isa = PBXBuildFile; fileRef = A2C399C51AD67A910082765E /* UISliderHandleDefault.png */; };
+		A2C399C91AD7CAF60082765E /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = A2C399C81AD7CAF60082765E /* UIImage+Resize.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +43,11 @@
 		A23DC8561AD594EF005044AF /* CCRangeSliderDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CCRangeSliderDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A23DC85B1AD594EF005044AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A23DC85C1AD594EF005044AF /* CCRangeSliderDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CCRangeSliderDemoTests.m; sourceTree = "<group>"; };
+		A23DC8671AD59613005044AF /* CCRangeSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCRangeSlider.h; sourceTree = "<group>"; };
+		A23DC8681AD59613005044AF /* CCRangeSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCRangeSlider.m; sourceTree = "<group>"; };
+		A2C399C51AD67A910082765E /* UISliderHandleDefault.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UISliderHandleDefault.png; sourceTree = "<group>"; };
+		A2C399C71AD7CAF60082765E /* UIImage+Resize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resize.h"; sourceTree = "<group>"; };
+		A2C399C81AD7CAF60082765E /* UIImage+Resize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resize.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,7 @@
 		A23DC8341AD594EF005044AF = {
 			isa = PBXGroup;
 			children = (
+				A23DC8661AD59518005044AF /* CCRangeSlider */,
 				A23DC83F1AD594EF005044AF /* CCRangeSliderDemo */,
 				A23DC8591AD594EF005044AF /* CCRangeSliderDemoTests */,
 				A23DC83E1AD594EF005044AF /* Products */,
@@ -117,6 +126,26 @@
 				A23DC85B1AD594EF005044AF /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A23DC8661AD59518005044AF /* CCRangeSlider */ = {
+			isa = PBXGroup;
+			children = (
+				A2C399C41AD67A870082765E /* Images */,
+				A23DC8671AD59613005044AF /* CCRangeSlider.h */,
+				A23DC8681AD59613005044AF /* CCRangeSlider.m */,
+				A2C399C71AD7CAF60082765E /* UIImage+Resize.h */,
+				A2C399C81AD7CAF60082765E /* UIImage+Resize.m */,
+			);
+			path = CCRangeSlider;
+			sourceTree = "<group>";
+		};
+		A2C399C41AD67A870082765E /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				A2C399C51AD67A910082765E /* UISliderHandleDefault.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,6 +230,7 @@
 			files = (
 				A23DC84C1AD594EF005044AF /* Main.storyboard in Resources */,
 				A23DC8511AD594EF005044AF /* LaunchScreen.xib in Resources */,
+				A2C399C61AD67A910082765E /* UISliderHandleDefault.png in Resources */,
 				A23DC84E1AD594EF005044AF /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,9 +249,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A23DC8691AD59613005044AF /* CCRangeSlider.m in Sources */,
 				A23DC8491AD594EF005044AF /* ViewController.m in Sources */,
 				A23DC8461AD594EF005044AF /* AppDelegate.m in Sources */,
 				A23DC8431AD594EF005044AF /* main.m in Sources */,
+				A2C399C91AD7CAF60082765E /* UIImage+Resize.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +444,7 @@
 				A23DC8621AD594EF005044AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A23DC8631AD594EF005044AF /* Build configuration list for PBXNativeTarget "CCRangeSliderDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +453,7 @@
 				A23DC8651AD594EF005044AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
