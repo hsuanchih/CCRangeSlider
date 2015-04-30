@@ -23,7 +23,6 @@
 
 @implementation CCRangeSlider
 
-static BOOL subviewsAdded = NO;
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -38,9 +37,7 @@ static BOOL subviewsAdded = NO;
     self = [super init];
     if (self)
     {
-        [self setTrackDefaults];
-        [self setHandleDefaults];
-        [self setValueDefaults];
+        [self setDefaults];
     }
     return self;
 }
@@ -50,9 +47,7 @@ static BOOL subviewsAdded = NO;
     self = [super initWithCoder:aDecoder];
     if (self)
     {
-        [self setTrackDefaults];
-        [self setHandleDefaults];
-        [self setValueDefaults];
+        [self setDefaults];
     }
     return self;
 }
@@ -62,16 +57,14 @@ static BOOL subviewsAdded = NO;
     self = [super initWithFrame:frame];
     if (self)
     {
-        [self setTrackDefaults];
-        [self setHandleDefaults];
-        [self setValueDefaults];
+        [self setDefaults];
     }
     return self;
 }
 
 - (void) layoutSubviews
 {
-    if ( subviewsAdded == NO )
+    if (![self.subviews containsObject:self.trackView])
     {
         [self addSubview:self.trackView];
         self.trackView.frame = CGRectMake(CGRectGetMinX(self.bounds) + CGRectGetWidth(self.lowerHandle.bounds)/2.0,
@@ -87,11 +80,16 @@ static BOOL subviewsAdded = NO;
         
         [self.trackHighlightView addSubview:self.trackHighlightImageView];
         self.trackHighlightImageView.frame = self.trackHighlightView.bounds;
-        
+    }
+    
+    if (![self.subviews containsObject:self.lowerHandle])
+    {
         [self addSubview:self.lowerHandle];
+    }
+    
+    if (![self.subviews containsObject:self.upperHandle])
+    {
         [self addSubview:self.upperHandle];
-        
-        subviewsAdded = YES;
     }
     
     [self setLowerValue:self.lowerValue];
@@ -102,6 +100,13 @@ static BOOL subviewsAdded = NO;
 
 
 #pragma mark - Private utility methods
+
+- (void) setDefaults
+{
+    [self setTrackDefaults];
+    [self setHandleDefaults];
+    [self setValueDefaults];
+}
 
 - (void) setHandleDefaults
 {
@@ -367,6 +372,7 @@ static BOOL subviewsAdded = NO;
     {
         _trackView = [[UIView alloc] initWithFrame:CGRectZero];
         _trackView.clipsToBounds = YES;
+        _trackView.userInteractionEnabled = NO;
     }
     return _trackView;
 }
@@ -378,6 +384,7 @@ static BOOL subviewsAdded = NO;
         _trackHighlightView = [[UIView alloc] initWithFrame:CGRectZero];
         _trackHighlightView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _trackHighlightView.clipsToBounds = YES;
+        _trackHighlightView.userInteractionEnabled = NO;
     }
     return _trackHighlightView;
 }
@@ -389,6 +396,7 @@ static BOOL subviewsAdded = NO;
         _trackImageView = [[UIImageView alloc] initWithImage:_trackImage];
         _trackImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _trackImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _trackImageView.userInteractionEnabled = NO;
     }
     return _trackImageView;
 }
@@ -400,6 +408,7 @@ static BOOL subviewsAdded = NO;
         _trackHighlightImageView = [[UIImageView alloc] initWithImage:_trackHighlightImage];
         _trackHighlightImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleHeight;
         _trackHighlightImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _trackHighlightImageView.userInteractionEnabled = NO;
     }
     return _trackHighlightImageView;
 }
