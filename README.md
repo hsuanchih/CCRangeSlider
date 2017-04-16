@@ -71,7 +71,7 @@ UIImage *handleImage = [UIImage imageNamed:@"handle-image"];
 ```
 
 ## Authors
-#####Hsuan-Chih Chuang
+##### Hsuan-Chih Chuang
 
 ## License
-#####Licensed under the MIT License.
+##### Licensed under the MIT License.
